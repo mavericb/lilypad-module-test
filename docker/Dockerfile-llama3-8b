@@ -17,7 +17,7 @@ COPY requirements.txt /app/requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Download image at build time
-RUN curl -o /app/image.jpg https://example.com/sample-image.jpg
+RUN curl -o /app/image.jpg https://fastly.picsum.photos/id/866/200/300.jpg?hmac=rcadCENKh4rD6MAp6V_ma-AyWv641M4iiOpe1RyFHeI
 
 # Copy application files
 COPY main.py /app/main.py
