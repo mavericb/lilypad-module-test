@@ -12,3 +12,4 @@ bash ../scripts/build.sh
 
 docker run mavericb/ollama:llama3-8b-lilypad-v20240829062256 --network none
 
+./stack run --network dev github.com/mavericb/lilypad-module-test:main
