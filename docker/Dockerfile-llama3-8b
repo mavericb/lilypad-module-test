@@ -1,0 +1,30 @@
+# Use a lightweight Python image
+FROM python:3.9-slim
+
+# Set environment variables
+ENV PYTHONUNBUFFERED=1
+
+# Set working directory
+WORKDIR /app
+
+# Install system dependencies
+RUN apt-get update -y && \
+    apt-get install -y curl && \
+    rm -rf /var/lib/apt/lists/*
+
+# Copy and install Python dependencies
+COPY requirements.txt /app/requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Download image at build time
+RUN curl -o /app/image.jpg https://example.com/sample-image.jpg
+
+# Copy application files
+COPY main.py /app/main.py
+COPY start.sh /app/start.sh
+
+# Make start.sh executable
+RUN chmod +x /app/start.sh
+
+# Set the entrypoint
+ENTRYPOINT ["/app/start.sh"]
