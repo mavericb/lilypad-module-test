@@ -18,6 +18,7 @@
 import os
 from PIL import Image
 
+print("hello")
 
 def main():
     print("Main started")
