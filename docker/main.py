@@ -2,6 +2,7 @@ import os
 from PIL import Image
 
 def main():
+    print("main started")
     image_path = '/app/image.jpg'
     if os.path.exists(image_path):
         with Image.open(image_path) as img:
