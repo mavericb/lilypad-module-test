@@ -26,5 +26,5 @@ COPY start.sh /app/start.sh
 # Make start.sh executable
 RUN chmod +x /app/start.sh
 
-# Set the entrypoint
+# Set the entrypoint #
 ENTRYPOINT ["/app/start.sh"]
