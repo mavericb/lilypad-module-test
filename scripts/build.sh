@@ -16,9 +16,9 @@ if [ $# -eq 2 ]; then
 fi
 
 # Check that the required variables are set
-if [[ -z $DOCKER_USERNAME || -z $DOCKER_PASSWORD || -z $IMAGE_NAME ]]; then
+if [[ -z $DOCKER_USERNAME || -z $DOCKER_PASSWORD || -z $IMAGE_NAME || -z $IMAGE_TAG ]]; then
     echo "Usage: $0 <DOCKER_USERNAME> <DOCKER_PASSWORD>"
-    echo "Or set DOCKER_USERNAME, DOCKER_PASSWORD, and IMAGE_NAME in CONFIG.env before building."
+    echo "Or set DOCKER_USERNAME, DOCKER_PASSWORD, IMAGE_NAME, and IMAGE_TAG in CONFIG.env before building."
     exit 1
 fi
 
@@ -36,10 +36,10 @@ echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
 NEW_TAG=$(date +v%Y%m%d%H%M%S)
 
 # Build the Docker image
-docker build -f Dockerfile -t $DOCKER_USERNAME/$IMAGE_NAME:$NEW_TAG .
+docker build -f Dockerfile -t $DOCKER_USERNAME/$IMAGE_NAME:$IMAGE_TAG-$NEW_TAG .
 
 # Publish the Docker containers
 echo "Publishing Docker containers..."
-docker push $DOCKER_USERNAME/$IMAGE_NAME:$NEW_TAG
+docker push $DOCKER_USERNAME/$IMAGE_NAME:$IMAGE_TAG-$NEW_TAG
 
 echo "Done!"
