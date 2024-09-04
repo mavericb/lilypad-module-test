@@ -2,7 +2,7 @@ import os
 from PIL import Image
 
 def main():
-    print("main started")
+    print("main started x")
 
     # Get prompt from $INPUT, falling back to "question mark floating in space" if not set
     input = os.environ.get("INPUT") or "question mark floating in space"
