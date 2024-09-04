@@ -74,4 +74,3 @@ rm -rf /home/lily/.bacalhau
      ./stack run --network dev github.com/mavericb/lilypad-module-test:36fc663dde73cbc536e71020537d0e1cf49b164d -i Input=moo
      ```
 
-Would you like me to explain or elaborate on any part of this guide?
