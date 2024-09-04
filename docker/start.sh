@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "pod started"
+echo "pod2 started"
 
 if [[ $PUBLIC_KEY ]]
 then
